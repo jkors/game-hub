@@ -9,7 +9,7 @@ interface FetchResponse<T> {
 
 const useGenres = <T>(endpoint: string) => {
   const [data, setData] = useState<T[]>([]);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const useGenres = <T>(endpoint: string) => {
     // Only fetch new data if the error state changes
   }, []);
 
-  return { data, error, isLoading };
+  return { data, isLoading, error };
 };
 
 export default useGenres;
